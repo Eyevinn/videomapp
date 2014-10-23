@@ -1,3 +1,5 @@
+var APIKEY = 'AIzaSyA_mHreA0XwHoNmtOcqp0oX-qF-HIueWpM';
+
 function initialize() {
     var mapOptions = {
         zoom: 8,
@@ -8,14 +10,17 @@ function initialize() {
     var m = new google.maps.Map(c, mapOptions);
 }
 
-function plotVideos(ytPlaylist) {
-    console.log(ytPlaylist);
+function plotVideos(playlistId) {
+    var reqItems = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&id='+playlistId+'&key=' + APIKEY;
+    $.get(reqItems, function (playlistItems) {
+        console.log(playlistItems);
+    });
 }
 
 function loadDeps() {
     var script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA_mHreA0XwHoNmtOcqp0oX-qF-HIueWpM&callback=initialize';
+    script.src = 'https://maps.googleapis.com/maps/api/js?key='+APIKEY+'&callback=initialize';
     document.body.appendChild(script);
 }
 

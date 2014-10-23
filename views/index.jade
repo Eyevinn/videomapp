@@ -1,6 +1,6 @@
 extends layout
 
 block content
-  input(type='text', size=60, value='http://www.youtube.com/playlist?list=PLzO03ikPUKt8xFjN-_qxo2en5-wu7i1_v')
-  input(type='button', value='Show videos on map', onclick="plotVideos('http://www.youtube.com/playlist?list=PLzO03ikPUKt8xFjN-_qxo2en5-wu7i1_v')")
+  input(type='text', id='playlistId', size=60, value='PLE3D27C2A39086E73')
+  input(type='button', value='Show videos on map', onclick="plotVideos($('#playlistId').val())")
   #videomap-canvas(style='width: 100%; height: 100%')
